@@ -1,4 +1,4 @@
-# Cellular Automata and The Game of Life
+# Cellular Automata and The Game of Life in React
 
 ## The Game of Life
 A very famous cellular automaton is John Conway's Game of Life. app. This game is a class of discrete model known as a Cellular Automaton, abbreviated CA.
