@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  max-height: 1000vh;
+  background-color: rgba(75, 68, 68, 0.783);
+  width: 70%;
+  margin: 0 auto;
+  padding: 7px;
+  
 }
 
 .App-logo {
@@ -35,4 +41,47 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.alive{
+  background-color: black;
+}
+
+.dead{
+  background-color: white;
+}
+table{
+  margin: 30px auto;
+  border: 1px solid rgb(0, 166, 255);
+  max-width: 60%;
+  /* height: auto; */
+  background-color: white;
+
+}
+h1{
+  color: white;
+  padding-top: 20px;
+  margin: 0;
+}
+td{
+  width: 2px;
+  height: 2px;
+}
+
+button{
+  border-radius: 5px;
+  margin: 7px;
+  padding: 5px 10px;
+
+}
+button:focus {outline:0;}
+span{
+  margin-right: 20px;
+}
+
+.gen{
+  color: white;
+}
+.lower{
+  margin-bottom: 10px;
 }
