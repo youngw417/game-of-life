@@ -89,7 +89,18 @@ label{
   font-size: .8rem;
   color: white;
   margin-right: 0.4rem;
+  margin-left: 0.4rem;
 }
 .option{
   margin: 10px;
+}
+
+.dim-control{
+  display: flex;
+  justify-content: center;
+}
+
+.dim-span{
+  margin-top: 10px;
+  margin-left: 1rem;
 }

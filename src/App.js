@@ -3,22 +3,23 @@ import  Board  from './Board';
 import SpeedController from './SpeedController';
 import myBoard from './myBoard';
 import GridColorOptions from './GridColor';
+import ChangeBoard from './ChangeBoard';
 
 import './App.css';
 
 // define a global variable
-const screenRows = 75;
-const screenCols = 75;
+// const screenRows = 75;
+// const screenCols = 75;
 // seeding: 10% of grid gets 'alive' state
 const cell = () => Math.random() < 0.1;
 
 
 class App extends Component{
   state = {
-    boardStatus: myBoard(cell),
+    boardStatus: myBoard(cell, 100, 100),
     dimension: {
-      width: 75,
-      length: 75
+      width: 100,
+      length: 100
     },
     generation: 0,
     onRunning: false,
@@ -37,7 +38,7 @@ class App extends Component{
   // clear all board
   Clearboard = () => {
     this.setState({
-      boardStatus: myBoard(false),
+      boardStatus: myBoard(false, this.state.dimension.width, this.state.dimension.length),
       generation: 0
     }) 
   }
@@ -45,7 +46,11 @@ class App extends Component{
   // reset the board to initial state
   resetBoard = () => {
     this.setState({
-      boardStatus: myBoard(cell),
+      boardStatus: myBoard(cell,100, 100),
+      dimension: {
+        width: 100,
+        length: 100
+      },
       generation: 0
     })
   }
@@ -69,7 +74,7 @@ class App extends Component{
 
   handleRegenration = () => {
 
-    // const { screenRows, screenCols } = this.state.dimension;
+    const { width, length } = this.state.dimension;
     const regeneration = (boardState) => {
       const boardStatus = boardState.boardStatus;
       const copyOfBoardStatus = JSON.parse(JSON.stringify(boardStatus));
@@ -80,7 +85,7 @@ class App extends Component{
         return neighbors.reduce((accum, neighbor) => {
             const x = row + neighbor[0];
             const y = col + neighbor[1];
-            const isInBoard = (x >= 0 && x < screenRows && y >= 0 && y < screenCols)
+            const isInBoard = (x >= 0 && x < width && y >= 0 && y < length)
             if (isInBoard && boardStatus[x][y])
               return accum + 1
             else
@@ -88,8 +93,8 @@ class App extends Component{
         }, 0)
       }
 
-      for (let row = 0; row < screenRows; row++) {
-        for (let col = 0; col < screenCols; col++) {
+      for (let row = 0; row < width; row++) {
+        for (let col = 0; col < length; col++) {
           const numLives = numberOfLiveNeighbors(row, col);
            console.log('copyofboardstatus',boardStatus[row][col], numberOfLiveNeighbors(row, col) )
            if (!boardStatus[row][col]){
@@ -143,7 +148,16 @@ class App extends Component{
     })
   };
 
-
+  dimensionChange = (dim) => {
+    
+    this.setState({
+      
+      boardStatus: myBoard(cell, dim.width, dim.length),
+      dimension: dim
+       
+    });
+  
+  }
 
   componentDidUpdate(pProps, pState){
     const {onRunning, speed} = this.state;
@@ -179,7 +193,11 @@ class App extends Component{
         </span>
           <span>speed: {1100 - speed} </span>
           <span className='gen'> {`Generation: ${generation}`}</span>
-        <GridColorOptions colorChange = {this.colorChange} />
+        <div className='dim-control'>
+          <GridColorOptions colorChange = {this.colorChange} />
+          <span className='dim-span'>Current Dimension: {width} X {length}</span>
+        </div>
+          <ChangeBoard dimensionChange={this.dimensionChange} />
       </div>
       <div className='controls lower'>
         {this.stopOrStart()}
@@ -197,4 +215,4 @@ class App extends Component{
   
 }
 
-export { App, screenCols, screenRows };
+export { App };
