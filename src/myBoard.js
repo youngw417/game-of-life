@@ -1,7 +1,7 @@
 
-import {screenRows, screenCols} from './App';
-
-export default (cellStatus) => {
+// import {screenRows, screenCols} from './App';
+// initializing the board with ramdom input or clear all values
+export default (cellStatus, screenRows, screenCols) => {
     const board = [];
     for (let i = 0; i < screenRows; i++ ){
       board[i] = [];
