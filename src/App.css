@@ -31,7 +31,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #000000;
 }
 
 @keyframes App-logo-spin {
@@ -79,9 +79,17 @@ span{
   margin-right: 20px;
 }
 
-.gen{
+.upper{
   color: white;
 }
 .lower{
   margin-bottom: 10px;
+}
+label{
+  font-size: .8rem;
+  color: white;
+  margin-right: 0.4rem;
+}
+.option{
+  margin: 10px;
 }

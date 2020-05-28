@@ -1,6 +1,6 @@
 
 import {screenRows, screenCols} from './App';
-
+// initializing the board with ramdom input or clear all values
 export default (cellStatus) => {
     const board = [];
     for (let i = 0; i < screenRows; i++ ){
