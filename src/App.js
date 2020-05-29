@@ -7,9 +7,7 @@ import ChangeBoard from './ChangeBoard';
 
 import './App.css';
 
-// define a global variable
-// const screenRows = 75;
-// const screenCols = 75;
+
 // seeding: 10% of grid gets 'alive' state
 const cell = () => Math.random() < 0.1;
 
@@ -187,7 +185,7 @@ class App extends Component{
       <Board className ='board' boardStatus={boardStatus} toggleCellStatus={this.toggleCellContent} color={gridColor} width={width}  length={length} />
       <div className='controls upper'>
         <span className='gen'>
-          &#x2B05;
+          {'+'} &#x2B05;
           <SpeedController speed={speed} speedChange={this.handleSpeed} />
   
         </span>
