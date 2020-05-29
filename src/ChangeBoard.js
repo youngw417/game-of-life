@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
+const initialState = {
+    width: 75,
+    length: 75
+}
 export default ({dimensionChange}) => {
-    const [dim, setDim] = useState({
-        width: 100,
-        length: 100
-    })
+    const [dim, setDim] = useState(initialState)
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -17,11 +18,8 @@ export default ({dimensionChange}) => {
     const onSubmit = (e) => {
         console.log('dim', dim)
         e.preventDefault();
-        dimensionChange(dim)
-        setDim({
-            width: 100,
-            length: 100
-        })
+        dimensionChange(dim);
+        setDim(initialState);
 
    
     }

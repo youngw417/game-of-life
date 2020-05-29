@@ -16,10 +16,10 @@ const cell = () => Math.random() < 0.1;
 
 class App extends Component{
   state = {
-    boardStatus: myBoard(cell, 100, 100),
+    boardStatus: myBoard(cell, 75, 75),
     dimension: {
-      width: 100,
-      length: 100
+      width: 75,
+      length: 75
     },
     generation: 0,
     onRunning: false,
@@ -46,10 +46,10 @@ class App extends Component{
   // reset the board to initial state
   resetBoard = () => {
     this.setState({
-      boardStatus: myBoard(cell,100, 100),
+      boardStatus: myBoard(cell,75, 75),
       dimension: {
-        width: 100,
-        length: 100
+        width: 75,
+        length: 75
       },
       generation: 0
     })
