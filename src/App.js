@@ -187,9 +187,9 @@ class App extends Component{
       <Board className ='board' boardStatus={boardStatus} toggleCellStatus={this.toggleCellContent} color={gridColor} width={width}  length={length} />
       <div className='controls upper'>
         <span className='gen'>
-          {'+  '}
+          &#x2B05;
           <SpeedController speed={speed} speedChange={this.handleSpeed} />
-          {'  -'}
+  
         </span>
           <span>speed: {1100 - speed} </span>
           <span className='gen'> {`Generation: ${generation}`}</span>
